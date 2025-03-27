@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combustível - Melhor Opção</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <img src="https://cdn4.iconfinder.com/data/icons/unigrid-flat-buildings/90/008_084_gas_fuel_gasoline_diesel_petroleum_station-1024.png" alt="Bomba de combustível" class="icon">
+        <h2>Qual a melhor opção?</h2>
+        
+        <label>Álcool (preço por litro):</label>
+        <input type="number" id="alcool" placeholder="Digite o preço do álcool">
+        
+        <label>Gasolina (preço por litro):</label>
+        <input type="number" id="gasolina" placeholder="Digite o preço da gasolina">
+        
+        <button onclick="calcularMelhorOpcao()">Calcular</button>
+        
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+        function calcularMelhorOpcao() {
+            let alcool = parseFloat(document.getElementById("alcool").value);
+            let gasolina = parseFloat(document.getElementById("gasolina").value);
+            let resultado = document.getElementById("resultado");
+
+            if (isNaN(alcool) || isNaN(gasolina)) {
+                resultado.textContent = "⚠️ Insira valores válidos!";
+                resultado.style.color = "red";
+                return;
+            }
+
+            let razao = alcool / gasolina;
+            if (razao < 0.7) {
+                resultado.textContent = "Melhor opção: Álcool 🚗💨";
+                resultado.style.color = "green";
+            } else {
+                resultado.textContent = "Melhor opção: Gasolina ⛽";
+                resultado.style.color = "blue";
+            }
+        }
+    </script>
+</body>
+</html>
+
